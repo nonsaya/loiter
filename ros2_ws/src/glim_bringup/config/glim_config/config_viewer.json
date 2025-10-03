@@ -1,0 +1,16 @@
+{
+  "standard_viewer": {
+    "default_z_range": [-2.0, 4.0],
+    "points_alpha": 1.0,
+    "factors_alpha": 1.0,
+    "point_size": 1.0,
+    "point_size_metric": false,
+    "point_shape_circle": true,
+    "enable_partial_rendering": false,
+    "partial_rendering_budget": 2048,
+    "viewer_width": 1280,
+    "viewer_height": 720
+  }
+}
+
+

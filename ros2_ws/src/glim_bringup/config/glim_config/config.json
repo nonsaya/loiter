@@ -5,7 +5,8 @@
     "config_sensors": "config_sensors.json",
     "config_preprocess": "config_preprocess.json",
     "config_sub_mapping": "config_sub_mapping.json",
-    "config_global_mapping": "config_global_mapping.json"
+    "config_global_mapping": "config_global_mapping.json",
+    "config_viewer": "config_viewer.json"
   }
 }
 
