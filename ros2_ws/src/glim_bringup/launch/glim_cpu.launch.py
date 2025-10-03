@@ -6,8 +6,7 @@ import os
 
 def generate_launch_description():
     cfg_dir = os.path.join(get_package_share_directory('glim_bringup'), 'config', 'glim_config')
-    # Relative path from glim package share dir
-    rel_cfg = os.path.relpath(cfg_dir, os.path.join(get_package_share_directory('glim')))
+    # Use absolute path to avoid resolution issues
     return LaunchDescription([
         Node(
             package='glim_ros',
@@ -22,7 +21,7 @@ def generate_launch_description():
             ],
             parameters=[
                 {'build_with_cuda': False},
-                {'config_path': rel_cfg},
+                {'config_path': cfg_dir},
             ],
         )
     ])
