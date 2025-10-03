@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Install ROS 2 Humble (Jammy) and build tools
 sudo apt-get update -y
-sudo apt-get install -y locales curl gnupg2 lsb-release software-properties-common build-essential cmake git python3-pip python3-colcon-common-extensions
+sudo apt-get install -y locales curl gnupg2 lsb-release software-properties-common build-essential cmake git python3-pip
 
 sudo locale-gen en_US en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -19,7 +19,7 @@ sudo apt-get install -y ros-humble-ros-base
 grep -q "source /opt/ros/humble/setup.bash" ~/.bashrc || echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
 
 # Create workspace
-WS_DIR=${WS_DIR:-$HOME/ros2_ws}
+WS_DIR=${WS_DIR:-"/home/nonsaya-n/repo/loiter/ros2_ws"}
 mkdir -p "$WS_DIR/src"
 
 # Clone Livox ROS Driver2
@@ -33,8 +33,10 @@ sudo apt-get install -y ros-humble-pcl-conversions ros-humble-pcl-ros ros-humble
 
 # Build
 source /opt/ros/humble/setup.bash
+python3 -m pip install --upgrade pip
+python3 -m pip install -U colcon-common-extensions vcstool
 cd "$WS_DIR"
-colcon build --symlink-install
+~/.local/bin/colcon build --symlink-install || colcon build --symlink-install
 
 echo "source $WS_DIR/install/setup.bash" >> ~/.bashrc
 echo "Setup completed. Open a new shell or 'source ~/.bashrc' then run launch scripts."
