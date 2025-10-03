@@ -1,0 +1,42 @@
+[0.028s] Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup
+[0.144s] -- The C compiler identification is GNU 11.4.0
+[0.269s] -- The CXX compiler identification is GNU 11.4.0
+[0.289s] -- Detecting C compiler ABI info
+[0.438s] -- Detecting C compiler ABI info - done
+[0.454s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.454s] -- Detecting C compile features
+[0.455s] -- Detecting C compile features - done
+[0.463s] -- Detecting CXX compiler ABI info
+[0.643s] -- Detecting CXX compiler ABI info - done
+[0.656s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.656s] -- Detecting CXX compile features
+[0.657s] -- Detecting CXX compile features - done
+[0.663s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.002s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.156s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.378s] -- Configuring done
+[1.386s] -- Generating done
+[1.389s] -- Build files have been written to: /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup
+[1.400s] Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup
+[1.405s] Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup -- -j6 -l6
+[1.487s] Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup -- -j6 -l6
+[1.508s] Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup
+[1.529s] -- Install configuration: ""
+[1.532s] -- Execute custom install script
+[1.532s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/launch/glim_cpu.launch.py
+[1.549s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/ament_index/resource_index/package_run_dependencies/glim_bringup
+[1.570s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/ament_index/resource_index/parent_prefix_path/glim_bringup
+[1.592s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/environment/ament_prefix_path.sh
+[1.610s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/environment/ament_prefix_path.dsv
+[1.630s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/environment/path.sh
+[1.649s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/environment/path.dsv
+[1.668s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/local_setup.bash
+[1.686s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/local_setup.sh
+[1.705s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/local_setup.zsh
+[1.724s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/local_setup.dsv
+[1.744s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.dsv
+[1.768s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/ament_index/resource_index/packages/glim_bringup
+[1.789s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/cmake/glim_bringupConfig.cmake
+[1.809s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/cmake/glim_bringupConfig-version.cmake
+[1.829s] -- Symlinking: /home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.xml
+[1.855s] Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup

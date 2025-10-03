@@ -1,0 +1,389 @@
+[0.327s] DEBUG:colcon:Command line arguments: ['/home/nonsaya-n/.local/bin/colcon', 'build', '--symlink-install']
+[0.328s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=6, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff91700ca0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff91700850>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff91700850>>)
+[0.671s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.671s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.672s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.672s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.672s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.672s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.672s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/nonsaya-n/repo/loiter/ros2_ws'
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.705s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extensions ['ignore', 'ignore_ament_install']
+[0.706s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extension 'ignore'
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extension 'ignore_ament_install'
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extensions ['colcon_pkg']
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extension 'colcon_pkg'
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extensions ['colcon_meta']
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extension 'colcon_meta'
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extensions ['ros']
+[0.707s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim) by extension 'ros'
+[0.718s] DEBUG:colcon.colcon_core.package_identification:Package 'src/glim' with type 'ros.ament_cmake' and name 'glim'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extension 'ignore'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extension 'ignore_ament_install'
+[0.719s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extensions ['colcon_pkg']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extension 'colcon_pkg'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extensions ['colcon_meta']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extension 'colcon_meta'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extensions ['ros']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_bringup) by extension 'ros'
+[0.721s] DEBUG:colcon.colcon_core.package_identification:Package 'src/glim_bringup' with type 'ros.ament_cmake' and name 'glim_bringup'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extension 'ignore'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extension 'ignore_ament_install'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extensions ['colcon_pkg']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extension 'colcon_pkg'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extensions ['colcon_meta']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extension 'colcon_meta'
+[0.723s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extensions ['ros']
+[0.723s] Level 1:colcon.colcon_core.package_identification:_identify(src/glim_ros2) by extension 'ros'
+[0.726s] DEBUG:colcon.colcon_core.package_identification:Package 'src/glim_ros2' with type 'ros.ament_cmake' and name 'glim_ros'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extension 'ignore'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extension 'ignore_ament_install'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extensions ['colcon_pkg']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extension 'colcon_pkg'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extensions ['colcon_meta']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extension 'colcon_meta'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extensions ['ros']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_mid360_bringup) by extension 'ros'
+[0.728s] DEBUG:colcon.colcon_core.package_identification:Package 'src/livox_mid360_bringup' with type 'ros.ament_cmake' and name 'livox_mid360_bringup'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extensions ['ignore', 'ignore_ament_install']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extension 'ignore'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extension 'ignore_ament_install'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extensions ['colcon_pkg']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extension 'colcon_pkg'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extensions ['colcon_meta']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extension 'colcon_meta'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extensions ['ros']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/livox_ros_driver2) by extension 'ros'
+[0.732s] DEBUG:colcon.colcon_core.package_identification:Package 'src/livox_ros_driver2' with type 'ros.ament_cmake' and name 'livox_ros_driver2'
+[0.732s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.732s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.733s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.733s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.733s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.788s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_args' from command line to 'None'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_target' from command line to 'None'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_clean_first' from command line to 'False'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'cmake_force_configure' from command line to 'False'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'ament_cmake_args' from command line to 'None'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.789s] Level 5:colcon.colcon_core.verb:set package 'glim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.789s] DEBUG:colcon.colcon_core.verb:Building package 'glim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim', 'merge_install': False, 'path': '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim', 'symlink_install': True, 'test_result_base': None}
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_args' from command line to 'None'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_target' from command line to 'None'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.790s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.791s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.791s] Level 5:colcon.colcon_core.verb:set package 'glim_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.791s] DEBUG:colcon.colcon_core.verb:Building package 'glim_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup', 'merge_install': False, 'path': '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.791s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_args' from command line to 'None'
+[0.791s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_target' from command line to 'None'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_clean_first' from command line to 'False'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'cmake_force_configure' from command line to 'False'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'ament_cmake_args' from command line to 'None'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.792s] Level 5:colcon.colcon_core.verb:set package 'livox_ros_driver2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.792s] DEBUG:colcon.colcon_core.verb:Building package 'livox_ros_driver2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2', 'merge_install': False, 'path': '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_ros_driver2', 'symlink_install': True, 'test_result_base': None}
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_args' from command line to 'None'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_target' from command line to 'None'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_clean_first' from command line to 'False'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'cmake_force_configure' from command line to 'False'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'ament_cmake_args' from command line to 'None'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[0.793s] Level 5:colcon.colcon_core.verb:set package 'glim_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.793s] DEBUG:colcon.colcon_core.verb:Building package 'glim_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros', 'merge_install': False, 'path': '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2', 'symlink_install': True, 'test_result_base': None}
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_args' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_target' from command line to 'None'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.794s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.795s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.795s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.795s] Level 5:colcon.colcon_core.verb:set package 'livox_mid360_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.795s] DEBUG:colcon.colcon_core.verb:Building package 'livox_mid360_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup', 'merge_install': False, 'path': '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.795s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.797s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.798s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim' with build type 'ament_cmake'
+[0.799s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim'
+[0.805s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.806s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.806s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.816s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_ros_driver2' with build type 'ament_cmake'
+[0.817s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_ros_driver2'
+[0.817s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.818s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.824s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup' with build type 'ament_cmake'
+[0.824s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup'
+[0.825s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.825s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.838s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim
+[0.844s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/livox_ros_driver2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2
+[0.852s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup
+[2.225s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup
+[2.230s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup -- -j6 -l6
+[2.311s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup -- -j6 -l6
+[2.333s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup
+[2.678s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(glim_bringup)
+[2.679s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_bringup
+[2.689s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup' for CMake module files
+[2.690s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup' for CMake config files
+[2.691s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim_bringup', 'cmake_prefix_path')
+[2.692s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.ps1'
+[2.694s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.dsv'
+[2.696s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.sh'
+[2.698s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/bin'
+[2.699s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/lib/pkgconfig/glim_bringup.pc'
+[2.703s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/lib/python3.10/site-packages'
+[2.703s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/bin'
+[2.705s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.ps1'
+[2.707s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.dsv'
+[2.709s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.sh'
+[2.711s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.bash'
+[2.714s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.zsh'
+[2.716s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/colcon-core/packages/glim_bringup)
+[2.717s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(glim_bringup)
+[2.718s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup' for CMake module files
+[2.719s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup' for CMake config files
+[2.720s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim_bringup', 'cmake_prefix_path')
+[2.721s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.ps1'
+[2.722s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.dsv'
+[2.723s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/hook/cmake_prefix_path.sh'
+[2.724s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/bin'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/lib/pkgconfig/glim_bringup.pc'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/lib/python3.10/site-packages'
+[2.726s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/bin'
+[2.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.ps1'
+[2.728s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.dsv'
+[2.729s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.sh'
+[2.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.bash'
+[2.731s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/glim_bringup/package.zsh'
+[2.733s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_bringup/share/colcon-core/packages/glim_bringup)
+[3.132s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim
+[3.135s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim -- -j6 -l6
+[10.203s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/livox_ros_driver2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2
+[10.204s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2 -- -j6 -l6
+[12.098s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2 -- -j6 -l6
+[12.099s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2
+[12.529s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(livox_ros_driver2)
+[12.531s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2' for CMake module files
+[12.532s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2' for CMake config files
+[12.534s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_ros_driver2', 'cmake_prefix_path')
+[12.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.ps1'
+[12.536s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.dsv'
+[12.538s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_ros_driver2
+[12.539s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.sh'
+[12.544s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib'
+[12.547s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_ros_driver2', 'ld_library_path_lib')
+[12.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.ps1'
+[12.556s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.dsv'
+[12.564s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.sh'
+[12.568s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/bin'
+[12.570s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib/pkgconfig/livox_ros_driver2.pc'
+[12.571s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib/python3.10/site-packages'
+[12.572s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/bin'
+[12.575s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.ps1'
+[12.580s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.dsv'
+[12.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.sh'
+[12.590s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.bash'
+[12.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.zsh'
+[12.598s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/colcon-core/packages/livox_ros_driver2)
+[12.603s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(livox_ros_driver2)
+[12.603s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2' for CMake module files
+[12.608s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2' for CMake config files
+[12.613s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_ros_driver2', 'cmake_prefix_path')
+[12.615s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.ps1'
+[12.619s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.dsv'
+[12.623s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/cmake_prefix_path.sh'
+[12.639s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib'
+[12.639s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_ros_driver2', 'ld_library_path_lib')
+[12.642s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.ps1'
+[12.645s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.dsv'
+[12.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/hook/ld_library_path_lib.sh'
+[12.654s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/bin'
+[12.655s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib/pkgconfig/livox_ros_driver2.pc'
+[12.658s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/lib/python3.10/site-packages'
+[12.662s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/bin'
+[12.664s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.ps1'
+[12.666s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.dsv'
+[12.669s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.sh'
+[12.671s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.bash'
+[12.673s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/livox_ros_driver2/package.zsh'
+[12.675s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2/share/colcon-core/packages/livox_ros_driver2)
+[12.678s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup' with build type 'ament_cmake'
+[12.679s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup'
+[12.680s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.681s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.751s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup
+[13.269s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup' returned '0': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup
+[13.270s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup -- -j6 -l6
+[13.494s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup' returned '0': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup -- -j6 -l6
+[13.495s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup
+[13.615s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(livox_mid360_bringup)
+[13.616s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup' for CMake module files
+[13.617s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup' returned '0': CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/livox_mid360_bringup
+[13.618s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup' for CMake config files
+[13.619s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_mid360_bringup', 'cmake_prefix_path')
+[13.620s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.ps1'
+[13.621s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.dsv'
+[13.622s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.sh'
+[13.624s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/bin'
+[13.624s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/lib/pkgconfig/livox_mid360_bringup.pc'
+[13.625s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/lib/python3.10/site-packages'
+[13.625s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/bin'
+[13.626s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.ps1'
+[13.641s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.dsv'
+[13.643s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.sh'
+[13.644s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.bash'
+[13.645s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.zsh'
+[13.646s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/colcon-core/packages/livox_mid360_bringup)
+[13.648s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(livox_mid360_bringup)
+[13.649s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup' for CMake module files
+[13.650s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup' for CMake config files
+[13.651s] Level 1:colcon.colcon_core.shell:create_environment_hook('livox_mid360_bringup', 'cmake_prefix_path')
+[13.651s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.ps1'
+[13.665s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.dsv'
+[13.667s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/hook/cmake_prefix_path.sh'
+[13.669s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/bin'
+[13.669s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/lib/pkgconfig/livox_mid360_bringup.pc'
+[13.670s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/lib/python3.10/site-packages'
+[13.670s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/bin'
+[13.671s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.ps1'
+[13.673s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.dsv'
+[13.674s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.sh'
+[13.689s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.bash'
+[13.691s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/livox_mid360_bringup/package.zsh'
+[13.692s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup/share/colcon-core/packages/livox_mid360_bringup)
+[329.513s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim -- -j6 -l6
+[329.527s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim
+[330.968s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(glim)
+[330.974s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim' for CMake module files
+[330.975s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/nonsaya-n/repo/loiter/ros2_ws/build/glim
+[330.977s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim' for CMake config files
+[330.978s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim', 'cmake_prefix_path')
+[330.979s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.ps1'
+[330.985s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.dsv'
+[330.987s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.sh'
+[330.990s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib'
+[330.990s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim', 'ld_library_path_lib')
+[330.991s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.ps1'
+[330.992s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.dsv'
+[330.993s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.sh'
+[330.994s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/bin'
+[330.994s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib/pkgconfig/glim.pc'
+[330.996s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib/python3.10/site-packages'
+[330.997s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/bin'
+[330.999s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.ps1'
+[331.001s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.dsv'
+[331.003s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.sh'
+[331.005s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.bash'
+[331.007s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.zsh'
+[331.009s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/colcon-core/packages/glim)
+[331.010s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(glim)
+[331.011s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim' for CMake module files
+[331.013s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim' for CMake config files
+[331.014s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim', 'cmake_prefix_path')
+[331.014s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.ps1'
+[331.016s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.dsv'
+[331.017s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/cmake_prefix_path.sh'
+[331.019s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib'
+[331.020s] Level 1:colcon.colcon_core.shell:create_environment_hook('glim', 'ld_library_path_lib')
+[331.020s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.ps1'
+[331.022s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.dsv'
+[331.023s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/hook/ld_library_path_lib.sh'
+[331.024s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/bin'
+[331.025s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib/pkgconfig/glim.pc'
+[331.025s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib/python3.10/site-packages'
+[331.026s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/bin'
+[331.027s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.ps1'
+[331.029s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.dsv'
+[331.030s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.sh'
+[331.032s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.bash'
+[331.033s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/glim/package.zsh'
+[331.034s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/share/colcon-core/packages/glim)
+[331.035s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2' with build type 'ament_cmake'
+[331.036s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2'
+[331.037s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[331.037s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[331.063s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros': AMENT_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/opt/ros/humble LD_LIBRARY_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros
+[334.808s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros' returned '0': AMENT_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/opt/ros/humble LD_LIBRARY_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros
+[334.813s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros': AMENT_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/opt/ros/humble LD_LIBRARY_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros -- -j6 -l6
+[350.213s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros' returned '2': AMENT_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_mid360_bringup:/home/nonsaya-n/repo/loiter/ros2_ws/install/livox_ros_driver2:/opt/ros/humble LD_LIBRARY_PATH=/home/nonsaya-n/repo/loiter/ros2_ws/install/glim/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros -- -j6 -l6
+[350.215s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(glim_ros)
+[350.216s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros' for CMake module files
+[350.217s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros' for CMake config files
+[350.218s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/bin'
+[350.219s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/lib/pkgconfig/glim_ros.pc'
+[350.220s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/lib/python3.10/site-packages'
+[350.221s] Level 1:colcon.colcon_core.environment:checking '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/bin'
+[350.221s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/glim_ros/package.ps1'
+[350.224s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/glim_ros/package.dsv'
+[350.225s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/glim_ros/package.sh'
+[350.227s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/glim_ros/package.bash'
+[350.229s] INFO:colcon.colcon_core.shell:Creating package script '/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/glim_ros/package.zsh'
+[350.230s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/nonsaya-n/repo/loiter/ros2_ws/install/glim_ros/share/colcon-core/packages/glim_ros)
+[350.242s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[350.244s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[350.244s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[350.245s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[350.283s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[350.283s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[350.284s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[350.374s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[350.376s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/nonsaya-n/repo/loiter/ros2_ws/install/local_setup.ps1'
+[350.381s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/nonsaya-n/repo/loiter/ros2_ws/install/_local_setup_util_ps1.py'
+[350.388s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/nonsaya-n/repo/loiter/ros2_ws/install/setup.ps1'
+[350.392s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/nonsaya-n/repo/loiter/ros2_ws/install/local_setup.sh'
+[350.396s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/nonsaya-n/repo/loiter/ros2_ws/install/_local_setup_util_sh.py'
+[350.398s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/nonsaya-n/repo/loiter/ros2_ws/install/setup.sh'
+[350.403s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/nonsaya-n/repo/loiter/ros2_ws/install/local_setup.bash'
+[350.405s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash'
+[350.410s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/nonsaya-n/repo/loiter/ros2_ws/install/local_setup.zsh'
+[350.412s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/nonsaya-n/repo/loiter/ros2_ws/install/setup.zsh'

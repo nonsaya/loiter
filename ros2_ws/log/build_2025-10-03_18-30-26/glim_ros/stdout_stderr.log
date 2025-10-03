@@ -1,0 +1,39 @@
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+-- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+-- GTSAM include directory:  /usr/local/lib/cmake/GTSAM/../../../include
+-- Found Threads: TRUE  
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: program_options 
+[0mIn this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/glim_ros` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.[0m
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nonsaya-n/repo/loiter/ros2_ws/build/glim_ros
+[ 13%] [32mBuilding CXX object CMakeFiles/glim_ros.dir/src/glim_ros/ros_qos.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/glim_ros.dir/src/glim_ros/glim_ros.cpp.o[0m
+In file included from [01m[K/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2/src/glim_ros/glim_ros.cpp:1[m[K:
+[01m[K/home/nonsaya-n/repo/loiter/ros2_ws/src/glim_ros2/include/glim_ros/glim_ros.hpp:11:10:[m[K [01;31m[Kfatal error: [m[Kimage_transport/image_transport.hpp: そのようなファイルやディレクトリはありません
+   11 | #include [01;31m[K<image_transport/image_transport.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/glim_ros.dir/build.make:76: CMakeFiles/glim_ros.dir/src/glim_ros/glim_ros.cpp.o] エラー 1
+gmake[2]: *** 未完了のジョブを待っています....
+gmake[1]: *** [CMakeFiles/Makefile2:149: CMakeFiles/glim_ros.dir/all] エラー 2
+gmake: *** [Makefile:146: all] エラー 2

@@ -6,7 +6,8 @@ sudo apt update -y
 sudo apt install -y git build-essential cmake ninja-build pkg-config \
   libomp-dev libboost-all-dev libmetis-dev \
   libfmt-dev libspdlog-dev \
-  libglm-dev libglfw3-dev libpng-dev libjpeg-dev
+  libglm-dev libglfw3-dev libpng-dev libjpeg-dev \
+  ros-humble-image-transport ros-humble-cv-bridge
 
 # GTSAM
 if [ ! -d "$HOME/src/gtsam" ]; then

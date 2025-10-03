@@ -5,8 +5,8 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='glim_ros2',
-            executable='glim_node',
+            package='glim_ros',
+            executable='glim_rosnode',
             name='glim',
             output='screen',
             remappings=[
