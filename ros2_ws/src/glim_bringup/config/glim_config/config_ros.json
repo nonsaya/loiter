@@ -3,7 +3,7 @@
     "enable_local_mapping": true,
     "enable_global_mapping": false,
     "keep_raw_points": false,
-    "imu_time_offset": 0.0,
+    "imu_time_offset": 0.005,
     "points_time_offset": 0.0,
     "acc_scale": 9.80665,
     "imu_frame_id": "imu",
@@ -12,7 +12,7 @@
     "odom_frame_id": "odom",
     "map_frame_id": "map",
     "publish_imu2lidar": true,
-    "tf_time_offset": 1e-6,
+    "tf_time_offset": 0.0,
     "extension_modules": [
       "libmemory_monitor.so",
       "libstandard_viewer.so",
