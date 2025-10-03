@@ -4,7 +4,7 @@ livox_ros_driver2:
     publish_freq: 10.0
     frame_id: "livox_frame"
     xfer_format: 0
-    multi_topic: 1
+    multi_topic: 0
     data_src: 0
     publish_imu: true
     imu_topic_name: "/livox/imu"
