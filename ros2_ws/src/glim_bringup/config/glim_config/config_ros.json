@@ -5,7 +5,7 @@
     "keep_raw_points": false,
     "imu_time_offset": 0.0,
     "points_time_offset": 0.0,
-    "acc_scale": 1.0,
+    "acc_scale": 9.80665,
     "imu_frame_id": "imu",
     "lidar_frame_id": "lidar",
     "base_frame_id": "",

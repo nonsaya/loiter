@@ -2,13 +2,13 @@ livox_ros_driver2:
   ros__parameters:
     enable_timer: true
     publish_freq: 10.0
-    frame_id: "livox_frame"
+    frame_id: "lidar"
     xfer_format: 0
     multi_topic: 0
     data_src: 0
     publish_imu: true
     imu_topic_name: "/livox/imu"
-    point_cloud_topic: "/livox/points"
+    point_cloud_topic: "/livox/lidar"
     lidar_point_filter_enable: false
     debug_point_cloud: false
     enable_fan: true
