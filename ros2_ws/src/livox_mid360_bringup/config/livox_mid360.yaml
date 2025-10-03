@@ -1,0 +1,32 @@
+livox_ros_driver2:
+  ros__parameters:
+    enable_timer: true
+    publish_freq: 10.0
+    host_ip: "192.168.1.50"
+    lidar_broadcast_code: ""
+    cmdline_broadcast_code: ""
+    lidar_net_info:
+      - ip: "192.168.1.3"
+        cmd_port: 56100
+        data_port: 56200
+    xfer_format: 0
+    multi_topic: 1
+    data_src: 0
+    publish_imu: true
+    imu_topic_name: "/livox/imu"
+    point_cloud_topic: "/livox/points"
+    frame_id: "livox_frame"
+    lidar_point_filter_enable: false
+    debug_point_cloud: false
+    enable_fan: true
+    return_mode: 0
+    imu_rate: 1
+    extrinsic:
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+      x: 0.0
+      y: 0.0
+      z: 0.0
+
+
