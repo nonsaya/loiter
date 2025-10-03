@@ -10,8 +10,11 @@ def generate_launch_description():
             name='glim',
             output='screen',
             remappings=[
+                # Ensure GLIM subscribes to Livox topics regardless of internal names
                 ('/glim/points', '/livox/lidar'),
+                ('points', '/livox/lidar'),
                 ('/glim/imu', '/livox/imu'),
+                ('imu', '/livox/imu'),
             ],
             parameters=[
                 {'build_with_cuda': False},
