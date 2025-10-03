@@ -1,7 +1,7 @@
 livox_ros_driver2:
   ros__parameters:
     enable_timer: true
-    publish_freq: 10.0
+    publish_freq: 20.0
     frame_id: "lidar"
     xfer_format: 0
     multi_topic: 0

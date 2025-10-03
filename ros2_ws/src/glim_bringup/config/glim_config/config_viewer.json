@@ -6,8 +6,8 @@
     "point_size": 1.0,
     "point_size_metric": false,
     "point_shape_circle": true,
-    "enable_partial_rendering": false,
-    "partial_rendering_budget": 2048,
+    "enable_partial_rendering": true,
+    "partial_rendering_budget": 4096,
     "viewer_width": 1280,
     "viewer_height": 720
   }
