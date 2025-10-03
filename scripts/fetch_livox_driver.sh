@@ -12,6 +12,11 @@ else
   git pull --rebase
 fi
 
+cd "$WS_DIR/src/livox_ros_driver2"
+if [ ! -f package.xml ] && [ -f package_ROS2.xml ]; then
+  ln -sf package_ROS2.xml package.xml
+fi
+
 echo "Driver located at: $WS_DIR/src/livox_ros_driver2"
 
 
