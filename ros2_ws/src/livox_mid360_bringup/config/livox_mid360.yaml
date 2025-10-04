@@ -1,0 +1,19 @@
+livox_ros_driver2:
+  ros__parameters:
+    enable_timer: true
+    publish_freq: 20.0
+    frame_id: "lidar"
+    xfer_format: 0
+    multi_topic: 0
+    data_src: 0
+    publish_imu: true
+    imu_topic_name: "/livox/imu"
+    point_cloud_topic: "/livox/lidar"
+    lidar_point_filter_enable: false
+    debug_point_cloud: false
+    enable_fan: true
+    return_mode: 0
+    imu_rate: 1
+    user_config_path: "/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup/config/mid360_net.json"
+
+
