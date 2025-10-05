@@ -67,7 +67,7 @@ colcon build --symlink-install
 
 # 以後の端末で
 source /opt/ros/humble/setup.bash
-source ~/ros2_ws/install/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
 ```
 
 ### 2.3 ネットワーク設定（例）
@@ -81,25 +81,36 @@ sudo ip link set eth0 up
 
 必要に応じて Livox のネット設定 JSON（mid360_net.json）を使い、ドライバから IP を設定できます（bringup に付属している場合）。
 
-### 2.4 ドライバ起動（恒久運用・推奨: bringup を使用）
+### 2.4 ドライバ起動（推奨: bringup 経由）
 ```bash
-# 環境を有効化（絶対パス）
 source /opt/ros/humble/setup.bash
 source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
-
-# Livox MID360 を PointCloud2 で恒久起動（RVizなし）
 ros2 launch livox_mid360_bringup livox_mid360.launch.py
 ```
 
-設定ファイルの場所（必要に応じて編集）:
-- 起動パラメータ: `/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup/config/livox_mid360.yaml`
-  - `xfer_format`: 出力形式（0=Livox PointCloud2(PointXYZRTLT), 2=標準 PointCloud2(PointXYZI)）
-- ネットワーク: `/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup/config/mid360_net.json`
-  - `host_net_info`: Jetson 側 IP/ポート（例: 192.168.1.50）
-  - `lidar_configs[0].ip`: MID360 の IP（例: 192.168.1.3）
+直接 driver の launch を使う場合（launch_ROS2 配下・絶対パス指定）:
+```bash
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
 
-補足（直接ドライバを起動する場合）:
-- 公式ドライバのサンプル launch は `launch_ROS2/` 配下にあり、`ros2 launch livox_ros_driver2 <file>` では参照されない場合があります。その場合は bringup を使用してください。
+# 利用可能な launch を確認
+ls $(ros2 pkg prefix livox_ros_driver2)/share/livox_ros_driver2/launch_ROS2/
+
+# 例: MID360 用
+ros2 launch $(ros2 pkg prefix livox_ros_driver2)/share/livox_ros_driver2/launch_ROS2/msg_MID360_launch.py
+```
+
+### 2.5 出力形式（PointCloud2 の選択）
+- bringup の設定: `ros2_ws/src/livox_mid360_bringup/config/livox_mid360.yaml`
+  - `xfer_format: 0` = Livox PointCloud2（PointXYZRTLT）
+  - `xfer_format: 2` = 標準 PointCloud2（PCL PointXYZI）
+- 変更後は必要に応じて再ビルド → 再起動。
+
+### 2.6 既知の落とし穴: Duplicate package names
+- `colcon build` で `Duplicate package names not supported: livox_ros_driver2` が出る場合、
+  `ros2_ws` 直下と `ros2_ws/src` に同名パッケージが重複配置されています。
+- 対処: `ros2_ws` 直下の重複ディレクトリ（例: `ros2_ws/livox_ros_driver2` や `*.bak`）をワークスペース外へ移動し、
+  `ros2_ws/src/livox_ros_driver2` のみを残して再ビルドしてください。
 
 動作確認:
 ```bash
