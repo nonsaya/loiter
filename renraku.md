@@ -83,6 +83,12 @@ ros2 launch glim_bringup loiter_ready.launch.py \
   target_topic:=/mavros/odometry/out
 
 
+tmux一発起動（各コンポーネントを別ペインで起動・GLIM待ち）
+sudo apt-get install -y tmux  # 未インストールなら
+/home/nonsaya-n/repo/loiter/scripts/loiter_tmux.sh
+  # 終了時: 各ペインで Ctrl-C、または別端末から tmux kill-session -t loiter
+
+
 
 
 
