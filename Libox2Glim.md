@@ -13,6 +13,9 @@
 - 本手順は GLIM CPU 版（PPA）を使用。Publisher は `librviz_viewer.so` が内包
 - ネットワーク: MID360 と Jetson を同一 L2（直結/スイッチ）で接続
 
+注記（この環境の前提）:
+- 本手順ではワークスペースを `/home/nonsaya-n/repo/loiter/ros2_ws` に統一して記載します（以後はこの絶対パスを使用）。
+
 推奨: Jetson と PC の時刻同期（chrony）
 ```bash
 sudo apt update && sudo apt install -y chrony
@@ -64,7 +67,7 @@ colcon build --symlink-install
 
 # 以後の端末で
 source /opt/ros/humble/setup.bash
-source ~/ros2_ws/install/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
 ```
 
 ### 2.3 ネットワーク設定（例）
@@ -78,16 +81,36 @@ sudo ip link set eth0 up
 
 必要に応じて Livox のネット設定 JSON（mid360_net.json）を使い、ドライバから IP を設定できます（bringup に付属している場合）。
 
-### 2.4 ドライバ起動
+### 2.4 ドライバ起動（推奨: bringup 経由）
 ```bash
-# 例1: 公式 driver のサンプル launch を使う場合
 source /opt/ros/humble/setup.bash
-source ~/ros2_ws/install/setup.bash
-ros2 launch livox_ros_driver2 msg_MID360.launch.py   # ドライバによりファイル名は異なることあり
-
-# 例2: bringup パッケージがある場合
-# ros2 launch livox_mid360_bringup livox_mid360.launch.py
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+ros2 launch livox_mid360_bringup livox_mid360.launch.py
 ```
+
+直接 driver の launch を使う場合（launch_ROS2 配下・絶対パス指定）:
+```bash
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+
+# 利用可能な launch を確認
+ls $(ros2 pkg prefix livox_ros_driver2)/share/livox_ros_driver2/launch_ROS2/
+
+# 例: MID360 用
+ros2 launch $(ros2 pkg prefix livox_ros_driver2)/share/livox_ros_driver2/launch_ROS2/msg_MID360_launch.py
+```
+
+### 2.5 出力形式（PointCloud2 の選択）
+- bringup の設定: `ros2_ws/src/livox_mid360_bringup/config/livox_mid360.yaml`
+  - `xfer_format: 0` = Livox PointCloud2（PointXYZRTLT）
+  - `xfer_format: 2` = 標準 PointCloud2（PCL PointXYZI）
+- 変更後は必要に応じて再ビルド → 再起動。
+
+### 2.6 既知の落とし穴: Duplicate package names
+- `colcon build` で `Duplicate package names not supported: livox_ros_driver2` が出る場合、
+  `ros2_ws` 直下と `ros2_ws/src` に同名パッケージが重複配置されています。
+- 対処: `ros2_ws` 直下の重複ディレクトリ（例: `ros2_ws/livox_ros_driver2` や `*.bak`）をワークスペース外へ移動し、
+  `ros2_ws/src/livox_ros_driver2` のみを残して再ビルドしてください。
 
 動作確認:
 ```bash
@@ -95,6 +118,12 @@ ros2 topic list | grep livox
 ros2 topic hz /livox/imu           # 200Hz 前後
 ros2 topic echo /livox/lidar --qos-profile sensor_data --qos-reliability best_effort -n 1
 ```
+
+### 2.5 PointCloud2 の出力形式
+- `xfer_format` で切替:
+  - 0: Livox PointCloud2 (PointXYZRTLT)
+  - 2: 標準 PointCloud2 (PCL PointXYZI)
+- 設定場所: `/home/nonsaya-n/repo/loiter/ros2_ws/src/livox_mid360_bringup/config/livox_mid360.yaml`
 
 ---
 
@@ -196,6 +225,11 @@ ros2 topic hz /glim/odom
 - GTSAM ABI 衝突
   - /usr/local/lib に手動インストールした GTSAM があると PPA の GLIM と混在して `undefined symbol` が発生
   - 退避して `sudo ldconfig` 実行
+- livox_ros_driver2 の重複配置
+  - `ros2_ws` 直下と `ros2_ws/src` の両方に `livox_ros_driver2` があると `Duplicate package names not supported` でビルド失敗
+  - 片方をワークスペース外へ退避してから `colcon build`
+- HUMBLE 用ビルドフラグ
+  - 環境により `colcon build --cmake-args -DHUMBLE_ROS=humble` が必要な場合あり
 - CUDA ランタイム不足（CUDA 版 GLIM を使う場合）
   - `libcudart.so.12` が無い等。JetPack 版に合わせて `cuda-cudart-12-6` などを導入後 `sudo ldconfig`
   - 本書は CPU 版を前提
