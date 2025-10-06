@@ -29,14 +29,44 @@ ros2 launch glim_mavros_bridge odom_bridge.launch.py \
   publish_immediately:=true \
   target_topic:=/mavros/odometry/out
 
+
 tmux一発起動（各コンポーネントを別ペインで起動・GLIM待ち）
 sudo apt-get install -y tmux  # 未インストールなら
 /home/nonsaya-n/repo/loiter/scripts/loiter_tmux.sh
-接続: 
 tmux attach -t loiter
   # 終了時: 各ペインで Ctrl-C、または別端末から tmux kill-session -t loiter
   
-  
+  試験2（ODOMETRY経路: nav_msgs/Odometry）
+GLIM→MAVROS
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+  ros2 launch glim_mavros_bridge odom_bridge.launch.py \
+    glim_namespace:=/glim_ros \
+    use_corrected:=false \
+    publish_rate_hz:=15.0 \
+    odom_child_frame_id:=base_link \
+    restamp_source:=now \
+    reject_older_than_ms:=200.0 \
+    publish_immediately:=true \
+    target_topic:=/mavros/odometry/out
+    
+
+ODOMETRYブリッジ一発起動（MAVROS+Bridgeのみ）
+# 事前にGLIMが動作中（/glim_ros/odomが出ている）であること
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+ros2 launch glim_bringup flight.launch.py \
+  fcu_url:=serial:///dev/ttyTHS1:921600 \
+  glim_namespace:=/glim_ros \
+  use_corrected:=false \
+  publish_rate_hz:=15.0 \
+  odom_child_frame_id:=base_link \
+  restamp_source:=now \
+  reject_older_than_ms:=200.0 \
+  publish_immediately:=true \
+  target_topic:=/mavros/odometry/out
+    
+    
 
 
 
