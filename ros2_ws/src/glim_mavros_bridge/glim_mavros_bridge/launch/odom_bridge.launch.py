@@ -12,6 +12,7 @@ def generate_launch_description():
     restamp_source = LaunchConfiguration('restamp_source', default='now')
     reject_older_than_ms = LaunchConfiguration('reject_older_than_ms', default='200.0')
     publish_immediately = LaunchConfiguration('publish_immediately', default='true')
+    target_topic = LaunchConfiguration('target_topic', default='/mavros/odometry/out')
 
     return LaunchDescription([
         DeclareLaunchArgument('glim_namespace', default_value='/glim'),
@@ -21,6 +22,7 @@ def generate_launch_description():
         DeclareLaunchArgument('restamp_source', default_value='now'),
         DeclareLaunchArgument('reject_older_than_ms', default_value='200.0'),
         DeclareLaunchArgument('publish_immediately', default_value='true'),
+        DeclareLaunchArgument('target_topic', default_value='/mavros/odometry/out'),
 
         Node(
             package='glim_mavros_bridge',
@@ -35,6 +37,7 @@ def generate_launch_description():
                 'restamp_source': restamp_source,
                 'reject_older_than_ms': reject_older_than_ms,
                 'publish_immediately': publish_immediately,
+                'target_topic': target_topic,
             }]
         ),
     ])

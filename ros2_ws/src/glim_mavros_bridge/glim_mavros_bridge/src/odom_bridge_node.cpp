@@ -18,10 +18,11 @@ public:
     restamp_source_ = this->declare_parameter<std::string>("restamp_source", "now"); // none|arrival|now
     reject_older_than_ms_ = this->declare_parameter<double>("reject_older_than_ms", 200.0);
     publish_immediately_ = this->declare_parameter<bool>("publish_immediately", true);
+    target_topic_ = this->declare_parameter<std::string>("target_topic", "/mavros/odometry/out");
 
     // Topics
     const std::string in_topic = glim_namespace_ + (use_corrected_ ? "/odom_corrected" : "/odom");
-    const std::string out_topic = "/mavros/odometry/in";
+    const std::string out_topic = target_topic_;
 
     // Publisher (Reliable, keep last 10)
     rclcpp::QoS qos_out(rclcpp::KeepLast(10));
@@ -110,6 +111,7 @@ private:
   std::string restamp_source_;
   double reject_older_than_ms_{};
   bool publish_immediately_{};
+  std::string target_topic_;
 
   // ROS interfaces
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
