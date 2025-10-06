@@ -7,6 +7,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Odometry
+from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 
 
 class DelayMeasure(Node):
@@ -20,17 +21,23 @@ class DelayMeasure(Node):
         self.in_vals = []
         self.out_times = []
         self.out_vals = []
+        # Use sensor-data like QoS (BEST_EFFORT) to avoid RELIABILITY mismatch
+        self.sub_qos = QoSProfile(
+            depth=10,
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            history=HistoryPolicy.KEEP_LAST,
+        )
 
         # Subscriptions
         if self._is_pose(self.in_topic):
-            self.create_subscription(PoseStamped, self.in_topic, self._in_pose_cb, 10)
+            self.create_subscription(PoseStamped, self.in_topic, self._in_pose_cb, self.sub_qos)
         else:
-            self.create_subscription(Odometry, self.in_topic, self._in_odom_cb, 10)
+            self.create_subscription(Odometry, self.in_topic, self._in_odom_cb, self.sub_qos)
 
         if self._is_pose(self.out_topic):
-            self.create_subscription(PoseStamped, self.out_topic, self._out_pose_cb, 10)
+            self.create_subscription(PoseStamped, self.out_topic, self._out_pose_cb, self.sub_qos)
         else:
-            self.create_subscription(Odometry, self.out_topic, self._out_odom_cb, 10)
+            self.create_subscription(Odometry, self.out_topic, self._out_odom_cb, self.sub_qos)
 
     def _is_pose(self, topic: str) -> bool:
         return topic.endswith('/pose') and 'odometry' not in topic
