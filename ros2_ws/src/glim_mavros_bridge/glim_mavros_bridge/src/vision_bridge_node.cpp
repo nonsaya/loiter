@@ -23,8 +23,9 @@ public:
 
 private:
   void poseCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
-    // Forward as-is. MAVROS handles ENU->NED conversion internally.
     geometry_msgs::msg::PoseStamped out = *msg;
+    // Header timestamp: use current ROS time to avoid stale timestamps from upstream
+    out.header.stamp = this->now();
     // Ensure frame_id exists; default to "map" which GLIM uses.
     if (out.header.frame_id.empty()) {
       out.header.frame_id = "map";
