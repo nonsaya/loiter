@@ -15,6 +15,12 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(mavros_msgs REQUIRED)
 
+add_executable(vision_bridge_node src/vision_bridge_node.cpp)
+ament_target_dependencies(vision_bridge_node rclcpp geometry_msgs)
+
+install(TARGETS vision_bridge_node
+  DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
