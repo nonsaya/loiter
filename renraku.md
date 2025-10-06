@@ -45,6 +45,26 @@ ros2 launch glim_bringup loiter.launch.py \
   target_topic:=/mavros/odometry/out
 
 
+二段起動（推奨: GLIM起動待ちしやすい）
+# 1) MID360 + GLIM
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+ros2 launch glim_bringup sensing.launch.py \
+  glim_config_path:=/home/nonsaya-n/glim_config
+
+# 2) MAVROS + Bridge（GLIMが安定してから）
+source /opt/ros/humble/setup.bash
+source /home/nonsaya-n/repo/loiter/ros2_ws/install/setup.bash
+ros2 launch glim_bringup flight.launch.py \
+  fcu_url:=serial:///dev/ttyTHS1:921600 \
+  glim_namespace:=/glim_ros \
+  use_corrected:=false \
+  publish_rate_hz:=15.0 \
+  odom_child_frame_id:=base_link \
+  restamp_source:=now \
+  reject_older_than_ms:=200.0 \
+  publish_immediately:=true \
+  target_topic:=/mavros/odometry/out
 
 
 
