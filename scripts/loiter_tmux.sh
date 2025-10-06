@@ -56,3 +56,4 @@ echo "起動中のtmuxセッション: $SESSION_NAME"
 echo "接続: tmux attach -t $SESSION_NAME"
 
 
+
