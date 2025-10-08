@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>glim_mavros_bridge</name>
+  <version>0.1.0</version>
+  <description>Bridge node to republish GLIM nav_msgs/Odometry to MAVROS /mavros/odometry/in for ArduPilot EKF3 external navigation.</description>
+  <maintainer email="nonsaya-n@local">nonsaya-n</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+
