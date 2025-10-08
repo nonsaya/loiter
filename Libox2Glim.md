@@ -300,3 +300,101 @@ ros2 topic echo /glim/odom -n 1
 - MAVROS の launch は ROS 2 Humble では `apm.launch`（XML）。`.py` 版は同梱されないことがある。
 - `install_geographiclib_datasets.sh` は地理座標の変換データを取得するために必須。
 - `ttyTHS1` は Jetson の UART。ボーレート 921600 で FCU 側設定と一致させる。
+
+---
+
+## 13. GLIM → MAVROS ブリッジを“ゼロから”導入（/glim_ros/odom → /mavros/odometry/in）
+
+目的: GLIM の `nav_msgs/Odometry` を MAVROS の `/mavros/odometry/in` へ供給（EKF3 に外部推定として採用させる）。
+
+### 13.1 パッケージ構成（本リポジトリ同梱）
+- 位置: `ros2_ws/src/glim_mavros_bridge`
+- ノード: `glim_mavros_bridge/bridge_node.py`
+- 起動: `glim_mavros_bridge/launch/bridge.launch.py`
+
+### 13.2 ビルド
+```bash
+cd /home/$USER/repo/loiter/ros2_ws
+rm -rf build/ install/ log/
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install --merge-install --packages-select glim_mavros_bridge
+```
+
+### 13.3 起動（最小例: ODOMETRY のみ）
+```bash
+source /opt/ros/humble/setup.bash
+source /home/$USER/repo/loiter/ros2_ws/install/setup.bash
+ros2 launch glim_mavros_bridge bridge.launch.py \
+  mirror_to_odometry_out:=false publish_vision_topics:=false \
+  override_stamp_with_now:=false frame_id:=odom child_frame_id:=base_link
+```
+
+### 13.4 ブリッジ パラメータ
+- `input_topic`（既定: `/glim_ros/odom`）: GLIM のオドメトリ入力
+- `output_topic`（既定: `/mavros/odometry/in`）: MAVROS への出力
+- `frame_id`（既定: `odom` 推奨）: 基準座標系（`odom` or `map`）
+- `child_frame_id`（既定: `base_link`）: 機体座標
+- `override_stamp_with_now`（既定: false）: 時刻を現在時刻に上書き（通常は false で GLIM の時刻を使用）
+- `pose_cov_diag`（既定: `[0.02, 0.02, 0.05, 0.01, 0.01, 0.02]`）: [x,y,z,roll,pitch,yaw] の対角分散
+- `twist_cov_diag`（既定: `[0.05, 0.05, 0.10, 0.02, 0.02, 0.02]`）: [vx,vy,vz,wx,wy,wz] の対角分散
+- `publish_vision_topics`（既定: false）: 互換の VISION 経路（`/mavros/vision_pose/pose_cov`, `/mavros/vision_speed/speed_twist`）も同時出力
+- `mirror_to_odometry_out`（既定: false）: 監視用に `/mavros/odometry/out` へ“ミラー出力”（機能検証用。採用とは無関係）
+
+補足:
+- 速度は EKF の期待（機体座標）に合わせ、ブリッジ内でワールド→ボディへ変換。
+- covariance が全ゼロ入力の場合は最小対角分散を自動付与（EKF に無視されにくくする）。
+
+### 13.5 推奨プリセット（まずは中庸→微調整）
+- 速応型（追従重視）
+```bash
+pose_cov_diag:="[0.02, 0.02, 0.05, 0.01, 0.01, 0.02]"
+twist_cov_diag:="[0.05, 0.05, 0.10, 0.02, 0.02, 0.02]"
+```
+- 中庸（最初に推奨）
+```bash
+pose_cov_diag:="[0.03, 0.03, 0.08, 0.02, 0.02, 0.03]"
+twist_cov_diag:="[0.08, 0.08, 0.15, 0.03, 0.03, 0.03]"
+```
+- 平滑型（揺れ抑制）
+```bash
+pose_cov_diag:="[0.05, 0.05, 0.12, 0.03, 0.03, 0.05]"
+twist_cov_diag:="[0.12, 0.12, 0.20, 0.04, 0.04, 0.04]"
+```
+
+### 13.6 チューニングの指針（より詳しく）
+- 平面の小刻み振動（XY）
+  - 影響変数: `pose_cov_diag` の x,y、`twist_cov_diag` の vx,vy
+  - 対応: それぞれ +0.01〜+0.03 ずつ増やす（例: x,y を 0.03→0.05、vx,vy を 0.08→0.10）
+- 上下のふらつき（Z）
+  - 影響変数: `pose_cov_diag` の z、`twist_cov_diag` の vz
+  - 対応: z を 0.08→0.10〜0.12、vz を 0.15→0.18〜0.20
+- ヨーの微振動（Yaw）
+  - 影響変数: `pose_cov_diag` の yaw、`twist_cov_diag` の wz
+  - 対応: yaw を 0.03→0.05、wz を 0.03→0.05 に増やす
+
+調整の流れ:
+1) 中庸プリセットで起動し、RViz2 で `/glim_ros/pose` と `/mavros/local_position/pose` を重ねて観察（30–60秒）
+2) 揺れ方向に応じて該当軸の分散を +0.01〜+0.03 刻みで増やす
+3) 応答が遅くなり過ぎたら 1段階だけ戻す
+
+### 13.7 frame の選び方
+- `frame_id=odom` 推奨（局所一貫でジャンプが少ない）
+- 地図整合（再ローカライズ）を強く使う場合は `map` も可（ジャンプ許容）
+- `child_frame_id=base_link`（機体座標）
+
+### 13.8 タイムスタンプ
+- 既定: `override_stamp_with_now=false`（GLIM の時刻を使用）
+- 時刻ズレ疑い時のみ true を一時試験（通常は不要）
+
+### 13.9 監視用の “ミラー出力”
+- `/mavros/odometry/out` は FCU→MAVROS→ROS の出力側。採用可否の判断には使わない。
+- 可視化や比較が必要な場合のみ `mirror_to_odometry_out:=true` で有効化（既定は false）。
+
+### 13.10 トラブルシュート
+- `/mavros/local_position/pose` が更新しない
+  - `/mavros/odometry/in` が 20Hz で入っているか
+  - ブリッジの `frame_id`, `covariance` を調整
+  - FCU 再起動後、収束まで数十秒静止
+- VISION 経路と併用したい
+  - `publish_vision_topics:=true` で `/mavros/vision_pose/pose_cov` と `/mavros/vision_speed/speed_twist` を同時出力
+
