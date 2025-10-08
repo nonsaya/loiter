@@ -221,3 +221,82 @@ ros2 launch livox_mid360_bringup livox_mid360.launch.py
 - リポジトリ（公開）: https://github.com/nonsaya/loiter
 - Livox ROS2 Driver2: https://github.com/Livox-SDK/livox_ros_driver2
 - GLIM: https://koide3.github.io/glim/installation.html
+
+---
+
+## 12. MAVROS を“ゼロから”導入して ArduPilot（EKF3）に外部推定を供給する
+
+目的: GLIM の自己位置（`/glim/odom`）を ArduPilot の EKF3 に外部推定として与え、LOITER でも安定ホバリングできる状態にする。
+
+### 12.1 インストール（JetPack 6.2 / ROS 2 Humble）
+```bash
+sudo apt update
+sudo apt install -y ros-humble-mavros ros-humble-mavros-extras ros-humble-mavlink
+sudo /opt/ros/humble/lib/mavros/install_geographiclib_datasets.sh
+```
+
+### 12.2 シリアル接続の前提設定（Jetson, `/dev/ttyTHS1:921600`）
+```bash
+# シリアル権限（初回のみ）
+sudo usermod -aG dialout $USER
+newgrp dialout
+
+# getty の競合があれば停止（初回のみ）
+sudo systemctl disable --now serial-getty@ttyTHS1.service || true
+
+# ポート確認
+ls -l /dev/ttyTHS1
+```
+
+### 12.3 MAVROS 起動（ROS 2 Humble の `apm.launch` は XML 版）
+```bash
+source /opt/ros/humble/setup.bash
+ros2 launch mavros apm.launch fcu_url:=serial:///dev/ttyTHS1:921600 tgt_system:=1
+```
+
+確認:
+```bash
+ros2 topic list | grep mavros
+ros2 topic echo /mavros/state -n 1
+```
+
+### 12.4 EKF3 の外部推定設定（Mission Planner などで調整）
+例（ExternalNav を使用）:
+- EK3_SRC1_POSXY = 6
+- EK3_SRC1_POSZ  = 6
+- EK3_SRC1_VELXY = 6
+- EK3_SRC1_VELZ  = 6
+- EK3_SRC1_YAW   = 6
+- （GPS 無し運用時）GPS_TYPE = 0
+
+### 12.5 GLIM → MAVROS への Odom 供給
+前提: GLIM から `/glim/odom`（`nav_msgs/Odometry`）が配信される。
+
+- 送信先（MAVROS 側）: `/mavros/odometry/in`
+- 一般的な frame 設定の例: `frame_id=map`（または `odom`）, `child_frame_id=base_link`
+- 必要に応じてブリッジノードで frame 名や covariance を整えてリパブリッシュする。
+
+最小確認フロー:
+```bash
+# ターミナル1: Livox → GLIM を起動
+source /opt/ros/humble/setup.bash
+ros2 launch livox_mid360_bringup livox_mid360.launch.py
+# （別端末で GLIM 起動）
+source /opt/ros/humble/setup.bash
+/opt/ros/humble/lib/glim_ros/glim_rosnode --ros-args -p config_path:=/home/$USER/glim_config
+
+# ターミナル2: MAVROS をシリアルで接続
+source /opt/ros/humble/setup.bash
+ros2 launch mavros apm.launch fcu_url:=serial:///dev/ttyTHS1:921600 tgt_system:=1
+
+# ターミナル3: GLIM の Odom を確認
+source /opt/ros/humble/setup.bash
+ros2 topic echo /glim/odom -n 1
+
+# （必要なら）/glim/odom → /mavros/odometry/in のブリッジを用意し、フレーム名等を整える
+```
+
+補足:
+- MAVROS の launch は ROS 2 Humble では `apm.launch`（XML）。`.py` 版は同梱されないことがある。
+- `install_geographiclib_datasets.sh` は地理座標の変換データを取得するために必須。
+- `ttyTHS1` は Jetson の UART。ボーレート 921600 で FCU 側設定と一致させる。
