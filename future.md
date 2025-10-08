@@ -84,3 +84,48 @@
 - MAVROS の外部推定入口は ODOMETRY-IN（VISION 系はオプション）
 - frame は `frame_id=odom` 推奨、`child_frame_id=base_link`
 - 分散（covariance）の具体調整は `Libox2Glim.md`（セクション13）を参照
+
+---
+
+## ステージ8: 手動飛行の「記録・再生（逆再生含む）」
+
+### 8.1 目的
+- 手動でうまく飛べた経路を、そのまま（または逆順に）自動再生。
+
+### 8.2 記録（Recorder）
+- 記録対象（どちらか）:
+  - `/mavros/local_position/pose`（EKF 出力）
+  - `/glim_ros/odom`（GLIM 出力）
+- 推奨: 「開始点原点化の相対軌跡」で保存（再生時に現在位置へ平行移動しやすい）。
+- 実装案:
+  - rosbag: `ros2 bag record -o flight1 /mavros/local_position/pose`
+  - もしくはノードで CSV/YAML に `timestamp,x,y,z,yaw` を保存（開始/停止サービス）
+
+### 8.3 再生（Replayer）
+- 出力先（いずれか）:
+  - 簡易: `/mavros/setpoint_position/local`（20Hz 程度）
+  - 高度: `/mavros/setpoint_raw/local`（速度・加速度・yaw を明示制御）
+- 処理:
+  1) 記録した相対軌跡を「現在の開始位置」に平行移動
+  2) スプライン補間＋速度/加速度上限で滑らかに
+  3) 時系列で setpoint を配信（到達判定→次点）
+
+### 8.4 逆再生（バック）
+- 方法: 点列を「終端→始端」の順にたどって setpoint を配信。
+- yaw の扱い（いずれか）:
+  - 軌跡接線方向へ向ける（自然）
+  - 機体は前方のまま後退（yaw 固定 / yaw_rate=0）
+
+### 8.5 安定化のコツ
+- フレーム: `odom` 推奨（相対復元向き）。
+- 速度・加速度上限を厳しめに（急激な戻りを防止）。
+- 許容誤差で到達判定（距離・yaw）＋タイムアウト時 LOITER 退避。
+- 風でのズレは次点へ遷移しながら補正。
+
+### 8.6 安全
+- RC 介入で即 LOITER。
+- ジオフェンス/高度上限/障害物停止信号（stop_request）で setpoint 抑止。
+
+### 8.7 実装予定（loiter_mission に追加）
+- `loiter_mission_recorder`: CSV/YAML へ記録（開始/停止サービス）。
+- `loiter_mission_replayer`: CSV/YAML から再生（逆再生/速度上限/到達判定/補間パラメータ）。
