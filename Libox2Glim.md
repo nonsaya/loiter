@@ -156,6 +156,31 @@ source /opt/ros/humble/setup.bash
 /opt/ros/humble/lib/glim_ros/glim_rosnode --ros-args -p config_path:=/home/$USER/glim_config
 ```
 
+### 8.1 推奨設定（Viewer/Downsampling）
+- Viewer モジュール:
+  - `librviz_viewer.so` は Publisher 機能を内包しており、これを有効にしないと `/glim/*` トピックが出ない構成があります（必須）。
+  - ローカルの GLIM ビューアを起動させたくない場合は、`libstandard_viewer.so` をコメントアウト/除外してください。
+  - 例（`ros2_ws/src/glim_bringup/config/glim_config/config_ros.json`）:
+    ```json
+    "extension_modules": [
+      "libmemory_monitor.so",
+      // "libstandard_viewer.so",  ← ビューアを抑止したい場合はコメントアウト
+      "librviz_viewer.so"         ← ROS 出力に必須
+    ]
+    ```
+
+- ダウンサンプリング（前処理）:
+  - `random_downsample_target`: 5000 を推奨。
+  - 例（`ros2_ws/src/glim_bringup/config/glim_config/config_preprocess.json`）:
+    ```json
+    {
+      "preprocess": {
+        "random_downsample_target": 5000
+      }
+    }
+    ```
+
+
 ---
 
 ## 9. トラブルシュート

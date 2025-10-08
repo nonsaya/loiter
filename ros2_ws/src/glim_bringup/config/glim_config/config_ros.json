@@ -15,7 +15,8 @@
     "tf_time_offset": 0.0,
     "extension_modules": [
       "libmemory_monitor.so",
-      "libstandard_viewer.so"
+      //"libstandard_viewer.so",
+      "librviz_viewer.so"
     ],
     "imu_topic": "/livox/imu",
     "points_topic": "/livox/lidar",
