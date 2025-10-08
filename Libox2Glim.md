@@ -153,7 +153,7 @@ cd /home/$USER/repo/loiter
 起動:
 ```bash
 source /opt/ros/humble/setup.bash
-/opt/ros/humble/lib/glim_ros/glim_rosnode --ros-args -p config_path:=/home/$USER/glim_config
+/opt/ros/humble/lib/glim_ros/glim_rosnode --ros-args -p config_path:=/home/$USER/repo/loiter/ros2_ws/src/glim_bringup/config/glim_config
 ```
 
 ### 8.1 推奨設定（Viewer/Downsampling）
