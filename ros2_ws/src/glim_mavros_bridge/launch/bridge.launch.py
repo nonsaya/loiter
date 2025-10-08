@@ -10,7 +10,7 @@ def generate_launch_description() -> LaunchDescription:
             name='glim_mavros_bridge',
             output='screen',
             parameters=[{
-                'input_topic': '/glim/odom',
+                'input_topic': '/glim_ros/odom',
                 'output_topic': '/mavros/odometry/in',
                 'frame_id': 'map',
                 'child_frame_id': 'base_link',
