@@ -52,6 +52,16 @@
 - 長期
   - サンプリング系のローカルプランナで安全回廊を決定
 
+## ステージ4.5: ゆっくり飛びながらの地図生成と安全経路の自動作成
+- 目的: 低速で移動しつつ、オンラインで占有/ESDF 地図を更新し、安全な短ホライズン経路を自動生成→追従。
+- 入力: `/glim_ros/odom`, `/livox/lidar`
+- 地図: ダウンサンプル→地面分離→占有/ESDF（OctoMap/Voxblox/NVBlox 等）
+- ローカルプランナ（2–5 Hz 再計画）:
+  - 2D: DWA/TEB + 膨張コストマップ（機体半径＋マージン）
+  - 3D: RRT* or ESDF 勾配ベース（狭所は減速し閾値チェック）
+- 追従: `/mavros/setpoint_raw/local` で 20 Hz 配信（vx,vy≤0.5 m/s, vz≤0.3 m/s, yaw_rate≤15°/s）
+- 安全: 近接停止、地図未更新時は減速→停止、RC 介入即 LOITER
+
 ## ステージ5: 堅牢性と安全
 - EKF3 チューニングの範囲と自動フェイルオーバ
   - `/mavros/estimator_status` が不健全 → LOITER 指示
@@ -69,6 +79,24 @@
   - `Libox2Glim.md`（ゼロからの復旧手順）
   - `future.md`（ロードマップ／進捗）
 - CI（任意）: ブリッジ／ミッションの lint/build チェック
+
+## ステージ6.5: 充電ステーションへの自動着陸（ドッキング）
+- 誘導方式（いずれか）:
+  - マーカー: 下向きカメラ + AprilTag/ArUco でステーション姿勢推定 → XY/yaw 微修正 → 最終降下
+  - Precision Landing（ArduPilot）: PLND（外部ビジョン）を `/mavros/landing_target/pose_in` で供給（PLND_ENABLED=1, PLND_TYPE=1）
+  - ビーコン: UWB/IR/LiDAR ビーコンで XY 補正
+- ステーション設計:
+  - 接点式（整列コーン/ファンネル） or 非接触給電（Qi/独自）
+  - 接触検出・電圧監視・極性/短絡保護・耐候
+  - マーカーは中央＋補助タグでロバスト化
+- 手順（例）:
+  1) GLIM 座標で上空（≈2 m）へ移動
+  2) 降下しながらタグ捕捉（≈0.5–1.0 m）→ XY/yaw 微修正（ビジュアルサーボ）
+  3) LAND_SPEED 低速で最終降下 → 接触検出 → モータ停止 → 充電開始
+  4) 充電完了後、再アーム可能化
+- 設定の要点:
+  - MAVROS/ArduPilot: PLND パラメータ（PLND_ENABLED, PLND_TYPE）と LAND_SPEED、RNGFND（近接高度）
+  - リスク対策: 照明/反射、風・地面効果、喪失時リトライ/退避（LOITER）
 
 ## ステージ7: ミッションノード（実装予定）
 - パッケージ: `loiter_mission`
