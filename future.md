@@ -25,6 +25,67 @@
     - アーム前チェック（IMU, RC, EKF 健全性）
     - タイムアウト時 LOITER 退避／外部停止指示で DISARM
 
+### ステージ1 検討詳細（MVP/TDD）
+- ゴール/完了条件（受け入れ基準）
+  - LOITER 安定から開始し、無線/サービスによる開始合図で以下が自動完了:
+    - 離陸: 目標高度（例 2.0 m）に ±0.3 m 以内で到達（≤5 s）、速度過大でない
+    - ホバ: 指定秒数（例 3 s）で高度変動 ±0.2 m 以内
+    - 前進: X+ に指定距離（例 2.0 m）±0.3 m、偏差収束（≤6 s）
+    - 着陸: LAND で接地検出→自動モータ停止（安全な降下率）
+  - いつでも RC 介入で即 LOITER に遷移（スティック/モード切替で中断）
+  - いずれかタイムアウト/不健全時は LOITER へ退避、setpoint 配信停止
+
+- 運用フロー（案）
+  1) 事前: GLIM+EKF3 正常、`/mavros/state` 接続、timesync 正常
+  2) ミッション開始: LOITER→GUIDED へ切替、arming 実施
+  3) 離陸: takeoff または Z 目標 setpoint（20 Hz 配信）
+  4) ホバ: 収束確認（速度/位置）→規定秒待機
+  5) 前進: X+ の相対 setpoint（速度上限を保守的に）
+  6) 着陸: LAND モード（または Z 下降目標）→接地 → DISARM/終了
+
+- インタフェース（最小）
+  - 入力: `/mavros/state`, `/mavros/estimator_status`, `/mavros/local_position/pose`
+  - 出力: `/mavros/cmd/arming`, `/mavros/set_mode`, `/mavros/setpoint_position/local`（MVP）
+  - 周期: setpoint は 20 Hz（ArduPilot は連続 setpoint を要求）
+
+- ステートマシン詳細
+  - IDLE → ARM（前提: EKF 健全, RC OK, timesync OK）
+  - ARM → TAKEOFF（GUIDED へモード変更成功）
+  - TAKEOFF → HOVER（高度誤差と速度で収束判定 or タイムアウト）
+  - HOVER → MOVE_X（規定秒待機後、相対 X 目標に切替）
+  - MOVE_X → HOVER（位置収束 or タイムアウト）
+  - HOVER → LAND（LAND へモード変更）→ DONE
+  - いずれの状態でもフェイルセーフ条件で LOITER へフォールバック
+
+- 安全/フェイルセーフ
+  - 事前: RC failsafe 設定, geofence/高度上限, EKF 正常性確認
+  - 実行中: 速度/姿勢が閾値超過→減速→LOITER、トピック途絶→LOITER
+  - 外部停止: サービス/RC で中断→LOITER、DISARM は地上/低高度でのみ
+
+- パラメータ（例）
+  - `takeoff_altitude=2.0`, `dx=2.0`, `hover_seconds=3`
+  - 速度上限: `vx,vy≤0.5 m/s, vz≤0.3 m/s, yaw_rate≤15°/s`（MVP）
+
+- 設定確認（ArduPilot/MAVROS）
+  - GUIDED 受入可（GUIDED/NAV_GUIDED 有効）
+  - LAND の降下率/接地検出、EKF3 ソース（外部オドメトリ）
+  - timesync 正常（`/mavros/timesync_status`）
+
+- TDD/MVP 進め方（実装は本ブランチでは未実施）
+  - ユニット: ステート遷移（正常/タイムアウト/中断）をモック時刻で検証
+  - インテグレーション: トピック入出力のレート/内容をロガで検証
+  - SITL ベンチ: ArduPilot SITL + MAVROS でシナリオ再現（屋外前）
+  - 受入試験: 低高度・広場で段階試験（離陸→ホバ→着陸→前進追加）
+
+- 実装計画（将来の別ブランチ）
+  - ROS 2 パッケージ: `loiter_mission`（`mission_node` のみ, MVP）
+  - 起動/停止サービスとダイアグトピック（進捗/状態/理由）
+  - デモ: `scripts/mission_demo.sh`（開始/中断, ログ収集）
+
+- リスク/留意点
+  - 風/地面効果での過制御、GLIM/通信遅延、setpoint 途絶
+  - RC の優先制御を常に確保、緊急時の LOITER/RTL 動作確認
+
 ## ステージ2: ミッション拡張
 - 複数ウェイポイント（四角・8の字・高度変化）
 - 時間ベース vs 収束判定（許容誤差を設ける）
