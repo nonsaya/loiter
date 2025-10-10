@@ -62,6 +62,13 @@
   - 実行中: 速度/姿勢が閾値超過→減速→LOITER、トピック途絶→LOITER
   - 外部停止: サービス/RC で中断→LOITER、DISARM は地上/低高度でのみ
 
+- 手動介入とモード/スロットル運用
+  - モード切替: 「勝手に」GUIDEDにはしない。ミッション開始時にのみ `/mavros/set_mode` で GUIDED へ切替。
+  - 手動優先: プロポのモードスイッチ操作は常に有効。LOITERに切替えれば即LOITERへ移行。
+  - 出力抑止: `/mavros/state` を監視し、GUIDED以外を検知したら setpoint 配信を即停止（安全優先）。
+  - スロットル: 待機〜自動開始までは「最低」を推奨。空中で手動LOITERへ切替えた直後は「中央」（高度維持）。
+  - 簡易運用フロー: 事前=スロットル最低/LOITER確認 → 開始=ノードがGUIDED→アーム → 緊急=LOITERへ手動切替+スロットル中央。
+
 - パラメータ（例）
   - `takeoff_altitude=2.0`, `dx=2.0`, `hover_seconds=3`
   - 速度上限: `vx,vy≤0.5 m/s, vz≤0.3 m/s, yaw_rate≤15°/s`（MVP）
