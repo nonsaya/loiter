@@ -43,6 +43,25 @@
   5) 前進: X+ の相対 setpoint（速度上限を保守的に）
   6) 着陸: LAND モード（または Z 下降目標）→接地 → DISARM/終了
 
+### 最小ミッション（まず着手）
+- シナリオ:
+  - 1) アーム
+  - 2) 1.0 m まで離陸
+  - 3) 10 秒ホバリング
+  - 4) 着陸（LAND）
+  - 5) ディスアーム
+- パラメータ（固定値）
+  - `takeoff_altitude=1.0`
+  - `hover_seconds=10`
+- 受け入れ基準
+  - 離陸: 目標高度 ±0.3 m 以内に ≤5 s で到達
+  - ホバ: 高度変動 ±0.2 m 以内で 10 s 維持
+  - 着陸: 安全な降下率で接地→モータ停止
+- インタフェース
+  - 入出力は下記「インタフェース（最小）」と同様
+- 備考
+  - いつでも RC 介入で即 LOITER、モード変化検知で setpoint 配信を停止
+
 - インタフェース（最小）
   - 入力: `/mavros/state`, `/mavros/estimator_status`, `/mavros/local_position/pose`
   - 出力: `/mavros/cmd/arming`, `/mavros/set_mode`, `/mavros/setpoint_position/local`（MVP）
