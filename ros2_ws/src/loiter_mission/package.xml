@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>loiter_mission</name>
+  <version>0.1.0</version>
+  <description>Minimal mission node: arm - takeoff(1.0 m) - hover(10 s) - land - disarm.</description>
+  <maintainer email="nonsaya-n@local">nonsaya-n</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+
+
