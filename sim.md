@@ -97,6 +97,11 @@ ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: true}"
 ros2 service call /mavros/cmd/takeoff mavros_msgs/srv/CommandTOL "{altitude: 1.0, min_pitch: 0.0, yaw: 0.0, latitude: 0.0, longitude: 0.0}"
 # 10秒待機
 sleep 10
+# X（前）方向に 1.0 m 進む（位置 setpoint）
+ros2 topic pub /mavros/setpoint_position/local geometry_msgs/PoseStamped "{header: {frame_id: 'odom'}, pose: {position: {x: 1.0, y: 0.0, z: 1.0}}}" -r 20
+# 別端末で 6〜8 秒程度配信し続け、収束を待つ（Ctrl+Cで停止）
+# 収束が見えたら配信を停止 → そのままホバリング
+sleep 2
 # LAND
 ros2 service call /mavros/set_mode mavros_msgs/srv/SetMode "{base_mode: 0, custom_mode: 'LAND'}"
 # 接地後にディスアーム
@@ -136,3 +141,37 @@ ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: false}
 - `loiter_mission` ノードで setpoint 配信を確認
 - SITL=開発PC、MAVROS+ノード=Jetson の分離運用
 - 受入基準に沿った自動ミッション（TDD/MVP）へ拡張
+
+---
+
+## 付録: PowerShell からの WSL 起動チートシート
+
+- デフォルトのディストリを起動
+```powershell
+wsl
+```
+
+- 指定ディストリを起動
+```powershell
+wsl -d Ubuntu-22.04
+```
+
+- 特定ユーザーで起動
+```powershell
+wsl -d Ubuntu-22.04 -u <ユーザー名>
+```
+
+- 1コマンドだけ実行して終了
+```powershell
+wsl -d Ubuntu-22.04 -- bash -lc "echo hello && uname -a"
+```
+
+- 終了/再起動（全WSLインスタンス停止）
+```powershell
+wsl --shutdown
+```
+
+- 例: SITL を PowerShell から一発起動
+```powershell
+wsl -d Ubuntu-22.04 -- bash -lc "cd ~/ardupilot && sim_vehicle.py -v ArduCopter --out 192.168.0.98:14550"
+```
