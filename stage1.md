@@ -24,8 +24,8 @@ ros2 topic echo /mavros/local_position/pose --once  # frame_id = map/odom を把
 ## 3. 室内・GPSなしでの Global Origin 設定
 - FCU起動直後（DISARMのまま）に 5Hz で 3–5 秒 Publish
 ```bash
-ros2 topic pub /mavros/global_position/set_gp_origin geographic_msgs/msg/GeoPointStamped \
-"{header:{frame_id:'map'}, position:{latitude:35.0, longitude:135.0, altitude:0.0}}" -r 5
+ros2 topic pub -r 5 /mavros/global_position/set_gp_origin geographic_msgs/msg/GeoPointStamped \
+'{header: {stamp: {sec: 0, nanosec: 0}, frame_id: "map"}, position: {latitude: 35.0, longitude: 135.0, altitude: 0.0}}'
 ```
 - 確認
 ```bash
