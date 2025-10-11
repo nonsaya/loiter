@@ -141,3 +141,37 @@ ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: false}
 - `loiter_mission` ノードで setpoint 配信を確認
 - SITL=開発PC、MAVROS+ノード=Jetson の分離運用
 - 受入基準に沿った自動ミッション（TDD/MVP）へ拡張
+
+---
+
+## 付録: PowerShell からの WSL 起動チートシート
+
+- デフォルトのディストリを起動
+```powershell
+wsl
+```
+
+- 指定ディストリを起動
+```powershell
+wsl -d Ubuntu-22.04
+```
+
+- 特定ユーザーで起動
+```powershell
+wsl -d Ubuntu-22.04 -u <ユーザー名>
+```
+
+- 1コマンドだけ実行して終了
+```powershell
+wsl -d Ubuntu-22.04 -- bash -lc "echo hello && uname -a"
+```
+
+- 終了/再起動（全WSLインスタンス停止）
+```powershell
+wsl --shutdown
+```
+
+- 例: SITL を PowerShell から一発起動
+```powershell
+wsl -d Ubuntu-22.04 -- bash -lc "cd ~/ardupilot && sim_vehicle.py -v ArduCopter --out 192.168.0.98:14550"
+```
